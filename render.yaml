@@ -1,0 +1,14 @@
+services:
+  - type: worker
+    name: telegram-bot
+    env: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r bot/requirements.txt
+    startCommand: python bot/bot.py
+    autoDeploy: false
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: COPY_BASE_URL
+        sync: false
